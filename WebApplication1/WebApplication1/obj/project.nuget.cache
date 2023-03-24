@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "LI3mvknr160MaTRWASjZPdyRaR4aGjU3Qf1xC7W2r0V8+cFzFpsG2GLb2eH4vLN7isQ0DXNwUNMS0HSz3v8a/Q==",
+  "dgSpecHash": "VfCWCx7roSKMm+1mnLTp8GyNgZ756mva89FwJbPKSwXdXJg3KTvoT1P6TbXtCAbtoQ9VtNs99VNf03dO1Cyd2w==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\Test\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
