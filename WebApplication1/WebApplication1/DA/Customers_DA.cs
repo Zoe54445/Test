@@ -116,6 +116,40 @@ namespace WebApplication1.DA
         }
 
 
+        public int UpdateData(string CustomerID,Customers data)
+        {
+            string sqlQry = @"
+UPDATE [dbo].[Customers]
+   SET [CustomerID] = @CustomerID
+      ,[CompanyName] = @CompanyName
+      ,[ContactName] = @ContactName
+      ,[ContactTitle] = @ContactTitle
+      ,[Address] = @Address
+      ,[City] = @City
+      ,[Region] = @Region
+      ,[PostalCode] = @PostalCode
+      ,[Country] = @Country
+      ,[Phone] = @Phone
+      ,[Fax] = @Fax
+ WHERE CustomerID=@CustomerID
+";
+
+            using (SqlConnection conn =   new SqlConnection(_connectString))
+            {
+                int result;
+                try
+                {
+                    result=conn.Execute(sqlQry, data);
+                }
+                catch (Exception e)
+                {
+                    result = -1;
+                }
+                return result;
+            }
+        }
+
+
 
     }
 }

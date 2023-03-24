@@ -41,9 +41,17 @@ namespace WebApplication1.Controllers
 
         // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public string Put(string id, [FromBody] Customers value)
         {
-
+            //確認編號是否存在
+            if(new Customers_DA().GetByCustomerID(id).Count == 0) 
+            { return "無此客戶編號"; }
+            var result = new Customers_DA().UpdateData(id,value);
+            if (result == 1)
+            {
+                return "客戶編號: " + value.CustomerID + " 修改成功";
+            }
+            else { return "修改失敗"; }
 
 
         }
