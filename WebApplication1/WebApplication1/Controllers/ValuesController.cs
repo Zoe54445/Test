@@ -28,14 +28,24 @@ namespace WebApplication1.Controllers
 
         // POST api/<ValuesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string Post([FromBody] Customers value)
         {
+            var result=new Customers_DA().InsertData(value);
+            if (result == 1)
+            {
+                return "客戶編號: " + value.CustomerID + " 新增成功";
+            }
+            else { return "新增失敗"; }
+
         }
 
         // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
+
+
+
         }
 
         // DELETE api/<ValuesController>/5

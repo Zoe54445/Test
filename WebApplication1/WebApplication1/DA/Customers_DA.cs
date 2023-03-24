@@ -16,7 +16,7 @@ namespace WebApplication1.DA
   WHERE customerid='ALFKI'
                             ";
 
-            using (SqlConnection conn =  new SqlConnection(_connectString))
+            using (SqlConnection conn = new SqlConnection(_connectString))
             {
                 try
                 {
@@ -24,7 +24,7 @@ namespace WebApplication1.DA
                 }
                 catch (Exception e)
                 {
-                    
+
                 }
                 return null;
             }
@@ -42,13 +42,76 @@ namespace WebApplication1.DA
             {
                 try
                 {
-                    return conn.Query<Customers>(sqlQry,new { CustomerID }).ToList();
+                    return conn.Query<Customers>(sqlQry, new { CustomerID }).ToList();
                 }
                 catch (Exception e)
                 {
 
                 }
                 return null;
+            }
+        }
+
+
+        public int InsertData(Customers value)
+        {
+            string sqlQry = @"
+                           INSERT INTO [dbo].[Customers]
+           ([CustomerID]
+           ,[CompanyName]
+           ,[ContactName]
+           ,[ContactTitle]
+           ,[Address]
+           ,[City]
+           ,[Region]
+           ,[PostalCode]
+           ,[Country]
+           ,[Phone]
+           ,[Fax])
+     VALUES
+          ( @CustomerID,
+           @CompanyName, 
+           @ContactName,
+           @ContactTitle,
+           @Address,
+           @City,
+           @Region, 
+           @PostalCode, 
+           @Country, 
+           @Phone, 
+           @Fax )
+                            ";
+
+            using (SqlConnection conn = new SqlConnection(_connectString))
+            {
+                int result;
+                try
+                {
+                    List<object> param = new List<object>();
+
+                    param.Add(new
+                    {
+                        CustomerID = value.CustomerID,
+                        CompanyName = value.CompanyName,
+                        ContactName = value.ContactName,
+                        ContactTitle = value.ContactTitle,
+                        Address = value.Address,
+                        City = value.City,
+                        Region = value.Region,
+                        PostalCode = value.PostalCode,
+                        Country = value.Country,
+                        Phone = value.Phone,
+                        Fax = value.Fax
+                    });
+
+                    result = conn.Execute(sqlQry, param);
+                }
+                catch (Exception e)
+                {
+
+                    result = -1;
+                }
+                return result;
             }
         }
 
