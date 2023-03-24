@@ -150,6 +150,31 @@ UPDATE [dbo].[Customers]
         }
 
 
+        public int DeleteData(string CustomerID)
+        {
+            string sqlQry = @"
+
+DELETE FROM [dbo].[Customers]
+ WHERE CustomerID=@CustomerID
+";
+
+            using (SqlConnection conn = new SqlConnection(_connectString))
+            {
+                int result;
+                try
+                {
+                    result = conn.Execute(sqlQry, new { CustomerID });
+                }
+                catch (Exception e)
+                {
+                    result = -1;
+                }
+                return result;
+            }
+        }
+
+
+
 
     }
 }

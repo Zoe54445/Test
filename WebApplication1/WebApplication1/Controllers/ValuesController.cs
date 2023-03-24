@@ -58,8 +58,21 @@ namespace WebApplication1.Controllers
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public string Delete(string id)
         {
+            //確認編號是否存在
+            if (new Customers_DA().GetByCustomerID(id).Count == 0)
+            { return "無此客戶編號"; }
+            var result = new Customers_DA().DeleteData(id);
+            if (result == 1)
+            {
+                return "客戶編號: " + id + "刪除成功";
+            }
+            else { return "刪除失敗"; }
+
+
+
+
         }
     }
 }
